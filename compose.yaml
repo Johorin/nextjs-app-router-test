@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: next_js_app_router_test
+    build:
+      context: .
+    # 対話的なシェルを必要とするアプリケーションは下記が必須っぽい
+    tty: true
+    volumes:
+      - ./:/app
+    environment:
+      - WATCHPACK_POLLING=true
+    # コンテナ立ち上げの際に実行するコマンド（ローカルサーバー起動）
+    # command: sh -c "npm run dev"
+    ports:
+      - "3000:3000"
